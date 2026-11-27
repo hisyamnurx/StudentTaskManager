@@ -133,7 +133,8 @@ def run_tests():
         # verify password hashing was used in store via backend module check
         from backend.data import create_initial_data
         seed = create_initial_data()
-        assert seed["accounts"][0]["password_hash"] != "password123"
+        assert len(seed["accounts"]) == 4
+        assert all(acc["password_hash"] != "assalam5g" for acc in seed["accounts"])
 
         # 4. verify dashboard stats match initial seed data
         status, dash, _ = client.request("GET", "/api/dashboard")
@@ -267,12 +268,20 @@ def run_tests():
         })
         assert status == 401, "expected registered user to disappear after restart"
 
-        # seed demo account still works and counts reset to initial 8 tasks
-        status, _, _ = client2.request("POST", "/api/auth/login", {
-            "identifier": "demo@student.example.ac.id",
-            "password": "password123",
+        # seeded group accounts still work and counts reset to initial 8 tasks
+        status, body, _ = client2.request("POST", "/api/auth/login", {
+            "identifier": "hisyamnurdiatmoko@student.telkomuniversity.ac.id",
+            "password": "assalam5g",
         })
-        assert status == 200
+        assert status == 200 and body["user"]["full_name"] == "Hisyam Nurdiatmoko"
+
+        # verify another group member can sign in via nim
+        status, body2, _ = client2.request("POST", "/api/auth/login", {
+            "identifier": "103112400024",
+            "password": "assalam5g",
+        })
+        assert status == 200 and body2["user"]["full_name"] == "Setyo Nugroho"
+
         status, dash, _ = client2.request("GET", "/api/dashboard")
         assert status == 200 and dash["stats"]["total_tasks"] == 8
     finally:

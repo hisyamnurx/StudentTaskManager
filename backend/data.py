@@ -16,11 +16,32 @@ def create_initial_data() -> dict:
         "accounts": [
             {
                 "id": 1,
-                "full_name": "Demo Student",
-                "nim": "220101000",
-                "email": "demo@student.example.ac.id",
-                "password_hash": generate_password_hash("password123"),
-            }
+                "full_name": "Hisyam Nurdiatmoko",
+                "nim": "103112400049",
+                "email": "hisyamnurdiatmoko@student.telkomuniversity.ac.id",
+                "password_hash": generate_password_hash("assalam5g"),
+            },
+            {
+                "id": 2,
+                "full_name": "Setyo Nugroho",
+                "nim": "103112400024",
+                "email": "setyon@student.telkomuniversity.ac.id",
+                "password_hash": generate_password_hash("assalam5g"),
+            },
+            {
+                "id": 3,
+                "full_name": "Mohammad Reyhan Aretha Fatin",
+                "nim": "103112400078",
+                "email": "mohammadreyhanaretha@student.telkomuniversity.ac.id",
+                "password_hash": generate_password_hash("assalam5g"),
+            },
+            {
+                "id": 4,
+                "full_name": "Muhammad Faris Rachmadi",
+                "nim": "103112400079",
+                "email": "muhammadfarisrmh@student.telkomuniversity.ac.id",
+                "password_hash": generate_password_hash("assalam5g"),
+            },
         ],
         # active user sessions mapped by session token
         "sessions": {},

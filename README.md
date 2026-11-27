@@ -75,12 +75,18 @@ StudentTaskManager/
 5. Open your browser at:
    `http://127.0.0.1:5000`
 
-### Demo Login Account (Fictitious In-Memory Seed)
+### Initial Login Accounts (In-Memory Seed — Assalam 5G)
 
-- **Email / NIM:** `demo@student.example.ac.id` or `220101000`
-- **Password:** `password123`
+Password for all seeded accounts: **`assalam5g`**
 
-*(You can also create a new account from the Register page; all accounts and records are stored in memory and reset when the server restarts.)*
+| Name | NIM | Campus Email |
+| :--- | :--- | :--- |
+| Hisyam Nurdiatmoko | `103112400049` | `hisyamnurdiatmoko@student.telkomuniversity.ac.id` |
+| Setyo Nugroho | `103112400024` | `setyon@student.telkomuniversity.ac.id` |
+| Mohammad Reyhan Aretha Fatin | `103112400078` | `mohammadreyhanaretha@student.telkomuniversity.ac.id` |
+| Muhammad Faris Rachmadi | `103112400079` | `muhammadfarisrmh@student.telkomuniversity.ac.id` |
+
+*(You can sign in with either **Email** or **NIM**, or create a new account from the Register page; all accounts and records are stored in memory and reset when the server restarts.)*
 
 ## Running Automated HTTP Tests
 
