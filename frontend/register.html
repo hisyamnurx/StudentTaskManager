@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Student Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- minimal top navbar for registration page -->
+  <header class="navbar">
+    <div class="brand-group">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 11l3 3L22 4" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-title">Student Task Manager</span>
+    </div>
+    <div class="navbar-right">
+      <span class="context-pill">Academic Tasks</span>
+    </div>
+  </header>
+
+  <main class="auth-canvas">
+    <section class="auth-card register-card" aria-label="Register">
+      <div>
+        <div class="auth-kicker">REGISTER</div>
+        <h1 class="auth-title">Student Task Manager</h1>
+        <p class="auth-subtitle">Create a new account to get started.</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div id="authAlert" class="alert alert-error alert-hidden" role="alert">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+          <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="alert-text"></span>
+      </div>
+
+      <form id="registerForm" class="auth-form" novalidate>
+        <div class="field">
+          <label class="field-label" for="regFullName">Full Name *</label>
+          <input id="regFullName" class="input" type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="regNim">NIM *</label>
+          <input id="regNim" class="input" type="text" placeholder="e.g. 220101099" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="regEmail">Email *</label>
+          <input id="regEmail" class="input" type="email" placeholder="name@student.example.ac.id" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="regPassword">Password *</label>
+          <input id="regPassword" class="input" type="password" placeholder="Minimum 6 characters" autocomplete="new-password" required>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="regConfirmPassword">Confirm Password *</label>
+          <input id="regConfirmPassword" class="input" type="password" placeholder="Re-enter your password" autocomplete="new-password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+      </form>
+
+      <div class="auth-switch">
+        Already have an account? <a href="/login.html">Login</a>
+      </div>
+
+      <div class="divider"></div>
+
+      <p class="auth-note">
+        Prototype note: Account data is stored temporarily in-memory (Python list/dictionary) without a persistent database and resets when the server restarts.
+      </p>
+    </section>
+  </main>
+
+  <script type="module" src="/js/auth.js"></script>
+</body>
+</html>

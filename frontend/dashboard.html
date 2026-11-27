@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Student Task Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <!-- application navbar with user profile -->
+  <header class="navbar">
+    <div class="brand-group">
+      <span class="brand-mark" aria-hidden="true">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M9 11l3 3L22 4" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <span class="brand-title">Student Task Manager</span>
+    </div>
+    <div class="navbar-right">
+      <span class="context-pill">Academic Tasks</span>
+      <div class="user-cluster">
+        <span id="navUserAvatar" class="user-avatar">--</span>
+        <span id="navUserName" class="user-name">Loading...</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="app-body">
+    <!-- left sidebar navigation -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-section-label">Navigation</div>
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <a href="/dashboard.html" class="nav-item active" data-nav="dashboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke-width="1.8"/>
+              <rect x="14" y="3" width="7" height="7" rx="1.5" stroke-width="1.8"/>
+              <rect x="3" y="14" width="7" height="7" rx="1.5" stroke-width="1.8"/>
+              <rect x="14" y="14" width="7" height="7" rx="1.5" stroke-width="1.8"/>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+          <a href="/tasks.html" class="nav-item" data-nav="tasks">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M9 11l3 3L22 4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Tasks</span>
+          </a>
+          <a href="/courses.html" class="nav-item" data-nav="courses">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Courses</span>
+          </a>
+          <a href="/students.html" class="nav-item" data-nav="students">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="9" cy="7" r="4" stroke-width="1.8"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Students</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="sidebar-footer">
+        <button id="signOutBtn" type="button" class="nav-item nav-signout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="16 17 21 12 16 7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="21" y1="12" x2="9" y2="12" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Sign Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- main dashboard content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div>
+          <h1 class="page-title">Overview</h1>
+          <p class="page-subtitle">Track your academic progress.</p>
+        </div>
+        <a href="/tasks.html#taskFormCard" class="btn btn-primary">+ Add Task</a>
+      </div>
+
+      <!-- kpi summary cards -->
+      <section class="kpi-grid" aria-label="Task statistics">
+        <div class="kpi-card">
+          <span class="kpi-label">Total Tasks</span>
+          <div class="kpi-value-row">
+            <span id="kpiTotal" class="kpi-value">0</span>
+          </div>
+          <span class="kpi-note">All registered</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-label">To Do</span>
+          <div class="kpi-value-row">
+            <span id="kpiTodo" class="kpi-value">0</span>
+          </div>
+          <span class="kpi-note">Not started</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-label">In Progress</span>
+          <div class="kpi-value-row">
+            <span id="kpiInProgress" class="kpi-value primary">0</span>
+          </div>
+          <span class="kpi-note">Currently active</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-label">Completed</span>
+          <div class="kpi-value-row">
+            <span id="kpiCompleted" class="kpi-value success">0</span>
+          </div>
+          <span class="kpi-note">Finished</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-label">Overdue</span>
+          <div class="kpi-value-row">
+            <span id="kpiOverdue" class="kpi-value danger">0</span>
+            <span id="kpiOverdueBadge" class="badge badge-danger" style="display: none;">Alert</span>
+          </div>
+          <span class="kpi-note">Past deadline</span>
+        </div>
+      </section>
+
+      <!-- completion rate progress bar -->
+      <section class="card progress-card" aria-label="Completion rate">
+        <div class="progress-top">
+          <span class="card-title">Completion Rate</span>
+          <span id="completionPercent" class="progress-percent">0%</span>
+        </div>
+        <div class="progress-track">
+          <div id="completionFill" class="progress-fill"></div>
+        </div>
+        <span id="completionCaption" class="progress-caption">0 of 0 tasks completed</span>
+      </section>
+
+      <!-- upcoming deadlines table -->
+      <section class="card" aria-label="Upcoming deadlines">
+        <div class="card-header">
+          <div>
+            <h2 class="card-title">Upcoming Deadlines</h2>
+            <p class="card-subtitle">Earliest deadlines for unfinished tasks.</p>
+          </div>
+          <a href="/tasks.html" class="header-meta-link">View all tasks &rarr;</a>
+        </div>
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Course</th>
+                <th>Deadline</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="upcomingBody">
+              <tr>
+                <td colspan="4" class="empty-state">Loading upcoming deadlines...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- entity summary strip -->
+      <section class="summary-grid" aria-label="Entity summaries">
+        <div class="summary-card">
+          <div>
+            <div id="sumStudentsTitle" class="summary-title">Students: 0 records</div>
+            <div id="sumStudentsDesc" class="summary-desc">0 students with active tasks</div>
+          </div>
+          <a href="/students.html" class="header-meta-link">Manage Students &rarr;</a>
+        </div>
+
+        <div class="summary-card">
+          <div>
+            <div id="sumCoursesTitle" class="summary-title">Courses: 0 courses</div>
+            <div id="sumCoursesDesc" class="summary-desc">0 total credit hours (SKS)</div>
+          </div>
+          <a href="/courses.html" class="header-meta-link">Manage Courses &rarr;</a>
+        </div>
+
+        <div class="summary-card">
+          <div>
+            <div id="sumTasksTitle" class="summary-title">Unfinished Tasks: 0 tasks</div>
+            <div id="sumTasksDesc" class="summary-desc">0 overdue · 0 due today</div>
+          </div>
+          <a href="/tasks.html" class="header-meta-link">Open Task List &rarr;</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>
